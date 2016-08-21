@@ -91,4 +91,21 @@ set clipboard=unnamedplus
 :nmap ; :
 
 " Vim Pathogen (for vim/bundle)
+
 execute pathogen#infect()
+
+" copy all lines in file
+command All %y
+
+" switch between .cc and .h files
+" see http://vim.wikia.com/wiki/Easily_switch_between_source_and_header_file
+function! SwitchSourceHeader()
+  "update!
+  if (expand ("%:e") == "cc")
+    find %:t:r.h
+  else
+    find %:t:r.cc
+  endif
+endfunction
+
+nmap ,s :call SwitchSourceHeader()<CR>
