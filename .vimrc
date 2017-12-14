@@ -46,9 +46,6 @@ highlight LineLimit ctermbg=white
 "nnoremap <c-j> :m .+1<CR>==
 "nnoremap <c-k> :m .-2<CR>==
 
-" highlight current word
-" nnoremap <space> bve
-
 " line numbers
 set number
 set relativenumber
@@ -61,51 +58,11 @@ command Dark set background=light
 " incremental search
 set incsearch
 
-"spelling
-command Spelling set spell spelllang=en_us
-command NoSpelling set nospell
-
-" Remove highlighting with Ctrl+?
-nnoremap <c-?> :noh<CR>
-
-function! NumberToggle()
-  if(&relativenumber == 1)
-    set nonumber
-    set norelativenumber
-  else
-    set number
-    set relativenumber
-  endif
-endfunc
-
-nnoremap <C-n> :call NumberToggle()<cr>
-
-" copying to system clipboard
-set clipboard=unnamedplus
-
-" autocomplete brackets
-" TODO: do this only in c,c++, or java files
-"inoremap { {<CR>}<Esc>ko
-
-" ; becomes :
+" semicolon to colon
 :nmap ; :
 
-" Vim Pathogen (for vim/bundle)
+" copying to system clipboard
+set clipboard=unnamed
 
-execute pathogen#infect()
-
-" copy all lines in file
-command All %y
-
-" switch between .cc and .h files
-" see http://vim.wikia.com/wiki/Easily_switch_between_source_and_header_file
-function! SwitchSourceHeader()
-  "update!
-  if (expand ("%:e") == "cc")
-    find %:t:r.h
-  else
-    find %:t:r.cc
-  endif
-endfunction
-
-nmap ,s :call SwitchSourceHeader()<CR>
+" remove highlight
+nnoremap <c-?> :noh<CR>
