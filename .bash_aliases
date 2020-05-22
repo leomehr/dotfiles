@@ -33,7 +33,7 @@ alias gr="git rebase"
 alias grm="git rebase master"
 alias gri="git rebase -i"
 alias grh="git reset HEAD"
-alias grht="git reset HEAD~"
+alias grs="git resore --staged"
 
 # safer moves and copy (prompty before overwrite)
 alias mv='mv -i'

@@ -19,6 +19,10 @@ __prompt_command() {
     local Cya='\033[36m'
     local Yel='\033[33m'
     local Blu='\033[94m'
+
+    # if remote access
+    #PS1+="${Blu}`whoami`${RCol}@${Blu}`hostname`${RCol} "
+
     # for more colors/ideas, see:
     # https://github.com/demure/dotfiles/blob/master/subbash/prompt
     if [ $EXIT != 0 ]; then
