@@ -1,8 +1,4 @@
-alias sourcebash='source ~/.bash_profile'
-
 alias grep='grep --color=auto'
-alias le="less -S"
-alias chux="chmod u+x"
 
 alias ls='ls -G'
 alias l='ls -G'
@@ -11,7 +7,6 @@ alias ..="cd .."
 
 alias ipy="ipython3"
 alias py="python3"
-alias ocaml='rlwrap ocaml' #Always use the wrapper program for Ocaml
 
 # git bindings
 alias gs="git status"
@@ -26,19 +21,22 @@ alias gb="git branch"
 alias gdc="git diff --cached"
 alias gca="git commit --amend"
 alias gap="git add -p"
-alias stash="git stash"
-alias pull="git pull"
-alias push="git push"
-alias gr="git rebase"
-alias grm="git rebase master"
-alias gri="git rebase -i"
 alias grh="git reset HEAD"
+alias stash='git stash'
+alias push='git push'
+alias pushf='git push -f'
+alias pull='git pull'
 alias grs="git resore --staged"
+alias gri="git rebase -i"
+alias grom="git rebase origin/master"
+alias grim="git rebase -i master"
 
-# safer moves and copy (prompty before overwrite)
+# safer moves and copy (prompt before overwrite)
 alias mv='mv -i'
 alias cp='cp -i'
+alias condasheet='open ~/programming/conda_sheet.pdf'
 
-alias cdc='cd ~/dev/core'
-alias cdwa='cd ~/dev/core/webapp'
-alias act='source ~/dev/core/webapp/venv/bin/activate'
+alias imgconvert='magick convert'
+
+# macOS specific
+alias restart_audio='sudo killall coreaudiod'
