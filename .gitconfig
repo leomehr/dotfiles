@@ -1,3 +1,9 @@
 [user]
-name = Leo Mehr
-email = leomehr@gmail.com
+  name = Leo Mehr
+  email = leo.mehr@gmail.com
+
+[pull]
+  rebase = true
+
+[init]
+  defaultBranch = main

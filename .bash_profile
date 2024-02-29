@@ -1,4 +1,3 @@
-PS1='\A \w$ '
 source ~/.bash_aliases
 export PATH="$PATH:~/bin"
 
@@ -9,11 +8,13 @@ alias sourcebash='source ~/.bash_profile'
 alias le="less -S"
 alias chux="chmod u+x"
 
+# advanced prompt, inspired by http://stackoverflow.com/a/16715681/5610569
+PS1='\A \w$ '
+
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
-# advanced prompt, inspired by http://stackoverflow.com/a/16715681/5610569
 PROMPT_COMMAND=__prompt_command # Func to gen PS1 after CMDs
 __prompt_command() {
     local EXIT="$?"             # This needs to be first

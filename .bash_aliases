@@ -7,6 +7,7 @@ alias ..="cd .."
 
 alias ipy="ipython3"
 alias py="python3"
+alias python="python3"
 
 # git bindings
 alias gs="git status"
@@ -28,15 +29,18 @@ alias pushf='git push -f'
 alias pull='git pull'
 alias grs="git resore --staged"
 alias gri="git rebase -i"
-alias grom="git rebase origin/master"
-alias grim="git rebase -i master"
+alias grod="git rebase origin/dev"
+alias grid="git rebase -i origin/dev"
+alias stash_untracked="git stash push -m tmp -u"
+alias pullgrod="git pull origin dev && git rebase origin/dev"
 
 # safer moves and copy (prompt before overwrite)
 alias mv='mv -i'
 alias cp='cp -i'
-alias condasheet='open ~/programming/conda_sheet.pdf'
-
-alias imgconvert='magick convert'
+alias condasheet='open ~/code/conda-cheatsheet.pdf'
 
 # macOS specific
 alias restart_audio='sudo killall coreaudiod'
+
+alias ta='tmux a'
+alias tat='tmux a -t'
