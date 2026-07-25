@@ -17,7 +17,7 @@ alias py='python3'
 # Git
 alias gs='git status'
 alias gd='git diff'
-alias gl='git log'
+alias gl='git log --graph --decorate --oneline -20'
 alias ga='git add'
 alias gsh='git show'
 alias gg='git grep'

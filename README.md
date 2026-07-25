@@ -1,8 +1,13 @@
-# Agent-first macOS dotfiles
+# Leo's agent-first Mac setup
 
-Small, reproducible defaults for a Mac where coding agents are the main
-development interface. The terminal stays fast and familiar; the underlying
-tools stay predictable for both people and agents.
+This repository describes Leo's local technology stack and makes it
+reproducible on a new Mac. Coding agents are the main development interface;
+the terminal stays fast and familiar, while the underlying tools stay
+predictable for both people and agents.
+
+A future coding agent should begin with [`AGENTS.md`](AGENTS.md), audit the
+machine, explain any material changes, and then run the setup with the
+appropriate permissions.
 
 ## Setup
 
@@ -60,6 +65,16 @@ Useful fzf bindings:
 
 These are intentionally practical rather than decorative. There is no shell
 framework, prompt framework, icon font, or collection of replacement commands.
+
+## Repository scope
+
+This is more than a collection of dotfiles. It is the source of truth for:
+
+- core applications and coding interfaces
+- command-line tools used by people and agents
+- shell, Git, and iTerm configuration
+- shared defaults for coding agents
+- repeatable setup and verification on a new Mac
 
 ## Credentials
 
