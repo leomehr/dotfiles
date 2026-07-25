@@ -41,6 +41,7 @@ Useful fzf bindings:
 
 - Browser: Dia (https://www.diabrowser.com/)
 - Cmd bar: Alfred (https://www.alfredapp.com/)
+- Dictation: VoiceInk (https://tryvoiceink.com/)
 - Terminal: iTerm (https://iterm2.com/)
 - Window manager: Rectangle (https://rectangleapp.com/)
 - Coding: Codex (https://openai.com/codex/), Claude Code (https://claude.com/product/claude-code), Cursor (https://cursor.com/)
