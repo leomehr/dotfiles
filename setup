@@ -1,0 +1,53 @@
+#!/bin/zsh
+set -eu
+
+dotfiles_dir="${0:A:h}"
+timestamp="$(date +%Y%m%d-%H%M%S)"
+install_tools=false
+
+if [[ "${1:-}" == "--install" ]]; then
+  install_tools=true
+elif [[ $# -gt 0 ]]; then
+  print -u2 "Usage: ./setup [--install]"
+  exit 2
+fi
+
+link_file() {
+  local source_file="$1"
+  local target="$2"
+
+  mkdir -p "${target:h}"
+
+  if [[ -e "$target" && ! -L "$target" ]]; then
+    local backup="${target}.backup-${timestamp}"
+    cp "$target" "$backup"
+    print "Backed up $target to $backup"
+  fi
+
+  ln -sfn "$source_file" "$target"
+  print "Linked $target -> $source_file"
+}
+
+for filename in .zshrc .aliases .gitconfig; do
+  link_file "$dotfiles_dir/$filename" "$HOME/$filename"
+done
+
+link_file \
+  "$dotfiles_dir/iterm-profile.json" \
+  "$HOME/Library/Application Support/iTerm2/DynamicProfiles/dotfiles.json"
+link_file "$dotfiles_dir/agent-instructions.md" "$HOME/.codex/AGENTS.md"
+link_file "$dotfiles_dir/agent-instructions.md" "$HOME/.claude/CLAUDE.md"
+
+if [[ "${DOTFILES_SKIP_DEFAULTS:-false}" != "true" ]]; then
+  defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool false
+fi
+
+if $install_tools; then
+  if ! (( $+commands[brew] )); then
+    print -u2 "Homebrew is required for --install: https://brew.sh"
+    exit 1
+  fi
+  brew bundle --file "$dotfiles_dir/Brewfile"
+fi
+
+print "Open a new terminal, or run: exec zsh"

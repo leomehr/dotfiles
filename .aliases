@@ -1,0 +1,49 @@
+# Shell basics
+alias grep='grep --color=auto'
+alias ls='ls -G'
+alias l='ls -G'
+alias la='ls -lAh'
+alias ll='ls -lah'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias c='clear'
+alias le='less -S'
+alias chux='chmod u+x'
+
+# Python
+alias ipy='ipython3'
+alias py='python3'
+
+# Git
+alias gs='git status'
+alias gd='git diff'
+alias gl='git log'
+alias ga='git add'
+alias gsh='git show'
+alias gg='git grep'
+alias gc='git commit'
+alias go='git checkout'
+alias gb='git branch'
+alias gdc='git diff --cached'
+alias gca='git commit --amend'
+alias gap='git add -p'
+alias grh='git reset HEAD'
+alias grs='git restore --staged'
+alias gri='git rebase -i'
+alias grod='git rebase origin/dev'
+alias grid='git rebase -i origin/dev'
+alias stash='git stash'
+alias stash_untracked='git stash push -m tmp -u'
+alias push='git push'
+alias pushf='git push --force-with-lease'
+alias pull='git pull'
+
+# Safer file operations
+alias mv='mv -i'
+alias cp='cp -i'
+
+# macOS and local tools
+alias condasheet='open ~/code/conda-cheatsheet.pdf'
+alias restart_audio='sudo killall coreaudiod'
+alias ta='tmux attach'
+alias tat='tmux attach -t'
