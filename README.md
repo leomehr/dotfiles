@@ -23,9 +23,13 @@ To install the command-line toolset as well:
 ./setup --install
 ```
 
-`--install` expects [Homebrew](https://brew.sh/). The setup script backs up
-regular files before linking the tracked configuration. It also installs the
-iTerm dynamic profile and shared instructions for Codex and Claude Code.
+`--install` expects [Homebrew](https://brew.sh/). The setup script moves any
+existing files or links to timestamped backups before linking the tracked
+configuration. It also installs the iTerm dynamic profile and shared
+instructions for Codex and Claude Code. By default, it also clears pinned
+applications from the Dock while leaving Finder, Trash, folders, and running
+applications alone. Set `DOTFILES_SKIP_DEFAULTS=true` to skip macOS preference
+changes.
 
 ## Terminal
 
@@ -49,7 +53,7 @@ Useful fzf bindings:
 - Dictation: VoiceInk (https://tryvoiceink.com/)
 - Terminal: iTerm (https://iterm2.com/)
 - Window manager: Rectangle (https://rectangleapp.com/)
-- Coding: Codex (https://openai.com/codex/), Claude Code (https://claude.com/product/claude-code), Cursor (https://cursor.com/)
+- Coding: Codex in ChatGPT and the Codex CLI (https://openai.com/codex/), Claude Code (https://claude.com/product/claude-code), Cursor (https://cursor.com/)
 - Video recording: Loom (https://loom.com/)
 - Red-shift: Flux (https://justgetflux.com/)
 - Gif Creator: Gifox (https://gifox.app/)
@@ -62,6 +66,7 @@ Useful fzf bindings:
 - `gh`: GitHub workflows from agents and the terminal
 - `mise`: project-specific language and tool versions
 - `direnv`: optional per-project environment loading
+- `tmux`: persistent terminal sessions, matching the tracked aliases
 
 These are intentionally practical rather than decorative. There is no shell
 framework, prompt framework, icon font, or collection of replacement commands.

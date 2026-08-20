@@ -18,17 +18,22 @@ link_file() {
 
   mkdir -p "${target:h}"
 
-  if [[ -e "$target" && ! -L "$target" ]]; then
-    local backup="${target}.backup-${timestamp}"
-    cp "$target" "$backup"
-    print "Backed up $target to $backup"
+  if [[ -L "$target" && "${target:A}" == "${source_file:A}" ]]; then
+    print "Already linked $target -> $source_file"
+    return
   fi
 
-  ln -sfn "$source_file" "$target"
+  if [[ -e "$target" || -L "$target" ]]; then
+    local backup="${target}.backup-${timestamp}"
+    mv "$target" "$backup"
+    print "Moved existing $target to $backup"
+  fi
+
+  ln -s "$source_file" "$target"
   print "Linked $target -> $source_file"
 }
 
-for filename in .zshrc .aliases .gitconfig; do
+for filename in .zshrc .aliases .gitconfig .vimrc; do
   link_file "$dotfiles_dir/$filename" "$HOME/$filename"
 done
 
@@ -38,16 +43,24 @@ link_file \
 link_file "$dotfiles_dir/agent-instructions.md" "$HOME/.codex/AGENTS.md"
 link_file "$dotfiles_dir/agent-instructions.md" "$HOME/.claude/CLAUDE.md"
 
-if [[ "${DOTFILES_SKIP_DEFAULTS:-false}" != "true" ]]; then
-  defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool false
-fi
-
 if $install_tools; then
   if ! (( $+commands[brew] )); then
     print -u2 "Homebrew is required for --install: https://brew.sh"
     exit 1
   fi
   brew bundle --file "$dotfiles_dir/Brewfile"
+fi
+
+if [[ "${DOTFILES_SKIP_DEFAULTS:-false}" != "true" ]] && \
+  [[ -d /Applications/iTerm.app || -d "$HOME/Applications/iTerm.app" ]]; then
+  defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool false
+fi
+
+# Keep the Dock empty of pinned applications. Finder, Trash, folders, and
+# currently running applications are unaffected.
+if [[ "${DOTFILES_SKIP_DEFAULTS:-false}" != "true" ]]; then
+  defaults write com.apple.dock persistent-apps -array
+  killall Dock 2>/dev/null || true
 fi
 
 print "Open a new terminal, or run: exec zsh"
