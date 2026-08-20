@@ -19,15 +19,17 @@ technology stack, not merely as a collection of dotfiles.
 
 ## Setup
 
-1. Install Homebrew from its official source if it is missing and Leo approves
+1. Keep coding repositories under `~/code` and place this repository at
+   `~/code/dotfiles`.
+2. Install Homebrew from its official source if it is missing and Leo approves
    the installation.
-2. Review `Brewfile` for compatibility with the current Mac and requested
+3. Review `Brewfile` for compatibility with the current Mac and requested
    stack.
-3. Run `./setup --install`. The script backs up regular files before linking
-   tracked configuration.
-4. Do not overwrite application data or import a full iTerm preferences dump.
+4. Run `./setup --install`. Add `--github` when GitHub browser authentication
+   should be performed and verify that the active account is `leomehr`.
+5. Do not overwrite application data or import a full iTerm preferences dump.
    The tracked dynamic profile contains only durable, portable settings.
-5. Keep credentials in a password manager, Keychain, or ignored project-local
+6. Keep credentials in a password manager, Keychain, or ignored project-local
    environment file.
 
 ## Verification
@@ -38,6 +40,8 @@ After setup:
 - Start a clean zsh and verify the prompt, aliases, fzf bindings, `mise`, and
   `direnv`.
 - Run `brew bundle check --file Brewfile`.
+- Run `gh auth status --hostname github.com` after GitHub setup and confirm the
+  active account is `leomehr` without displaying its token.
 - Confirm `~/.zshrc`, `~/.aliases`, `~/.gitconfig`, the iTerm dynamic profile,
   and global Codex and Claude instructions link to this repository.
 - Confirm iTerm is not loading preferences from a machine-specific custom

@@ -11,7 +11,16 @@ appropriate permissions.
 
 ## Setup
 
-Run:
+Keep development repositories under `~/code`. On a new Mac, clone this
+repository into its canonical location:
+
+```sh
+mkdir -p ~/code
+git clone https://github.com/leomehr/dotfiles.git ~/code/dotfiles
+cd ~/code/dotfiles
+```
+
+Link the configuration:
 
 ```sh
 ./setup
@@ -22,6 +31,19 @@ To install the command-line toolset as well:
 ```sh
 ./setup --install
 ```
+
+To install the stack and sign in to GitHub as `leomehr` in the same run:
+
+```sh
+./setup --install --github
+```
+
+The `--github` option uses GitHub CLI's browser flow and credential storage,
+verifies the active username, and configures Git to use GitHub CLI for HTTPS
+authentication. Machine-specific credential-helper configuration is kept in
+`~/.gitconfig.local`; no token is written to this repository. Set
+`DOTFILES_GITHUB_USER` before running setup to intentionally use a different
+account.
 
 `--install` expects [Homebrew](https://brew.sh/). The setup script moves any
 existing files or links to timestamped backups before linking the tracked
@@ -80,6 +102,9 @@ This is more than a collection of dotfiles. It is the source of truth for:
 - shell, Git, and iTerm configuration
 - shared defaults for coding agents
 - repeatable setup and verification on a new Mac
+
+All coding repositories should live below `~/code`; this repository belongs at
+`~/code/dotfiles`.
 
 ## Credentials
 

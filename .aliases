@@ -9,6 +9,7 @@ alias ...='cd ../..'
 alias c='clear'
 alias le='less -S'
 alias chux='chmod u+x'
+alias codehome='cd ~/code'
 
 # Python
 alias ipy='ipython3'
