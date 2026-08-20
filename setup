@@ -83,7 +83,11 @@ if $authenticate_github; then
 
   if ! gh auth status --hostname github.com >/dev/null 2>&1; then
     print "Opening GitHub's browser sign-in for $github_user..."
-    gh auth login --hostname github.com --git-protocol https --web --clipboard
+    GH_PROMPT_DISABLED=1 gh auth login \
+      --hostname github.com \
+      --git-protocol https \
+      --web \
+      --clipboard
   fi
 
   authenticated_user="$(gh api user --jq .login)"
