@@ -73,6 +73,7 @@ Useful fzf bindings:
 - Browser: Dia (https://www.diabrowser.com/)
 - Cmd bar: Alfred (https://www.alfredapp.com/)
 - Dictation: VoiceInk (https://tryvoiceink.com/)
+- Local dictation and transcription: MacParakeet (https://macparakeet.com/)
 - Terminal: iTerm (https://iterm2.com/)
 - Window manager: Rectangle (https://rectangleapp.com/)
 - Coding: Codex in ChatGPT and the Codex CLI (https://openai.com/codex/), Claude Code (https://claude.com/product/claude-code), Cursor (https://cursor.com/)
@@ -92,6 +93,14 @@ Useful fzf bindings:
 
 These are intentionally practical rather than decorative. There is no shell
 framework, prompt framework, icon font, or collection of replacement commands.
+
+## MacParakeet
+
+MacParakeet is installed from its GPL-3.0 open-source Homebrew cask. On first
+launch, grant Microphone and Accessibility access and let it download the local
+speech model. Core dictation and transcription run locally. Anonymous telemetry
+is optional and can be disabled in MacParakeet Settings; networked AI features
+are separate and opt-in.
 
 ## Repository scope
 

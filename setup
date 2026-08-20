@@ -102,4 +102,10 @@ if $authenticate_github; then
   print "GitHub CLI and Git are authenticated as $authenticated_user."
 fi
 
+if [[ -d /Applications/MacParakeet.app || \
+      -d "$HOME/Applications/MacParakeet.app" ]]; then
+  print "MacParakeet: open it once to grant Microphone and Accessibility access"
+  print "and download the local speech model. Telemetry can be disabled in Settings."
+fi
+
 print "Open a new terminal, or run: exec zsh"

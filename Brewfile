@@ -13,6 +13,7 @@ cask "claude-code"
 cask "codex"
 cask "chatgpt"
 cask "cursor"
+cask "macparakeet"
 cask "voiceink"
 
 # Desktop environment.
